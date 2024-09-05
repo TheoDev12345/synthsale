@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace Perso Utilisateur</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="/js/script.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="user-dashboard-container">
+    <div class="sidebar">
+        <div class="user-info">
+            <p><strong>Nom d'utilisateur :</strong> <span th:text="${username}">Nom d'utilisateur</span></p>
+            <p><strong>Email :</strong> <span th:text="${email}">Email</span></p>
+        </div>
+        <div class="user-actions">
+            <a href="/favorites" class="btn">Favoris</a>
+        </div>
+        <!-- Formulaire de déconnexion, visible uniquement si l'utilisateur est connecté -->
+        <form th:if="${#authentication.principal != null}" th:action="@{/logout}" method="post" style="display: inline;">
+            <button type="submit" class="logout-btn">Déconnexion</button>
+        </form>
+    </div>
+
+
+    <div class="main-content">
+        <div class="add-ad-container">
+            <a href="/post-ad" class="btn add-ad-btn">Ajouter une annonce</a>
+        </div>
+        <div class="ads-listing">
+            <h1>Mes Annonces</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Titre</th>
+                    <th>Prix</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ad : ${ads}">
+                    <td><img th:src="@{${ad.imageUrl1}}" alt="Image de l'annonce" class="ad-thumbnail"/></td>
+                    <td><a th:href="@{/ad/{id}(id=${ad.id})}" th:text="${ad.title}">Titre</a></td>
+                    <td th:text="${ad.price}+ ' €'">Prix</td>
+                    <td>
+                        <a th:href="@{/manageAds/edit/{id}(id=${ad.id})}" class="btn">Éditer</a>
+                        <a th:href="@{/manageAds/delete/{id}(id=${ad.id})}" class="btn"
+                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?');">Supprimer</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

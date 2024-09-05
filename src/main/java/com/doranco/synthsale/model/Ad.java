@@ -4,44 +4,63 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Ad {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
     private String description;
     private double price;
-    private List<String> location;
+    private String location;
+
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime dateCreation;
 
+    private String imageUrl1;
+    private String imageUrl2;
+    private String imageUrl3;
+    
     @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    private Category category;
+    //@ManyToOne
+    @Enumerated(EnumType.STRING)
+    private CategoryEnum category;
 
     @OneToOne
     private Synth synth;
 
+    @OneToMany(mappedBy = "ad", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Favorite> favorites = new HashSet<>();
+
     public Ad() {
     }
 
-    public Ad(Long id, String title, String description, double price, List<String> location, LocalDateTime dateCreation, User user, Category category, Synth synth) {
+    public Ad(Long id, String title, String description, double price, String location, LocalDateTime dateCreation, String imageUrl1, String imageUrl2, String imageUrl3, User user, CategoryEnum category, Synth synth) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.location = location;
         this.dateCreation = dateCreation;
+        this.imageUrl1 = imageUrl1;
+        this.imageUrl2 = imageUrl2;
+        this.imageUrl3 = imageUrl3;
         this.user = user;
         this.category = category;
         this.synth = synth;
     }
+
+    // Getters et Setters
 
     public Long getId() {
         return id;
@@ -75,11 +94,11 @@ public class Ad {
         this.price = price;
     }
 
-    public List<String> getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(List<String> location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -91,6 +110,30 @@ public class Ad {
         this.dateCreation = dateCreation;
     }
 
+    public String getImageUrl1() {
+        return imageUrl1;
+    }
+
+    public void setImageUrl1(String imageUrl1) {
+        this.imageUrl1 = imageUrl1;
+    }
+
+    public String getImageUrl2() {
+        return imageUrl2;
+    }
+
+    public void setImageUrl2(String imageUrl2) {
+        this.imageUrl2 = imageUrl2;
+    }
+
+    public String getImageUrl3() {
+        return imageUrl3;
+    }
+
+    public void setImageUrl3(String imageUrl3) {
+        this.imageUrl3 = imageUrl3;
+    }
+
     public User getUser() {
         return user;
     }
@@ -99,11 +142,11 @@ public class Ad {
         this.user = user;
     }
 
-    public Category getCategory() {
+    public CategoryEnum getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoryEnum category) {
         this.category = category;
     }
 
@@ -113,5 +156,13 @@ public class Ad {
 
     public void setSynth(Synth synth) {
         this.synth = synth;
+    }
+
+    public Set<Favorite> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(Set<Favorite> favorites) {
+        this.favorites = favorites;
     }
 }

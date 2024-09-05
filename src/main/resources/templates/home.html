@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Synth Sale - Home</title>
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+    <script src="/js/script.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<main>
+    <div class="banner">
+        <h1>
+        </h1>
+    </div>
+    <div class="post-ad">
+        <a href="/post-ad" class="btn">Déposer une annonce</a>
+    </div>
+    <div class="carousel">
+        <h2>Dernières annonces</h2>
+        <div class="carousel-container">
+            <div th:each="ad : ${latestAds}">
+                <div class="ad">
+                    <img th:src="@{${ad.imageUrl1}}" alt="Synth Image" class="ad-image">
+                    <h3 th:text="${ad.title}"></h3>
+                    <p th:text="${ad.price + ' €'}" class="ad-price"></p>
+                    <a th:href="@{/ad/{id}(id=${ad.id})}" class="btn">Voir l'annonce</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view-all-ads">
+        <a href="/ads" class="btn">Voir toutes les annonces</a>
+    </div>
+
+
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

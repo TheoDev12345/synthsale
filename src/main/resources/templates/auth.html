@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion / Inscription</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="/js/script.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="auth-container">
+    <h1>Connexion / Inscription</h1>
+
+    <div class="auth-forms">
+        <!-- Formulaire de Connexion -->
+        <div class="login-form">
+            <h2>Connexion</h2>
+            <form th:action="@{/login}" method="post">
+                <div>
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" name="username" placeholder="Username" required>
+                </div>
+                <div>
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+
+        <!-- Formulaire d'Inscription -->
+        <div class="register-form">
+            <h2>Inscription</h2>
+            <form th:action="@{/register}" method="post" onsubmit="return validateForm()">
+                <div>
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" name="username" placeholder="Username" required>
+                </div>
+                <div>
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" placeholder="Email" required>
+                </div>
+                <div>
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Créer un compte</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

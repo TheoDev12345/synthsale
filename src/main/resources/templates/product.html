@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${ad.title}">Fiche Produit</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<main>
+    <!-- Affichage du message de succès -->
+    <div th:if="${successMessage}" class="alert alert-success" role="alert">
+        <span th:text="${successMessage}"></span>
+    </div>
+
+    <div class="fiche-annonce">
+        <!-- Titre de l'annonce -->
+        <div class="title-section">
+            <h1 th:text="${ad.title}">Titre de l'annonce</h1>
+        </div>
+
+        <div class="top-section">
+        <!-- Section de gauche : Carrousel des images -->
+        <div class="left-section">
+            <div id="adCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" th:if="${ad.imageUrl1 != null and !ad.imageUrl1.isEmpty()}">
+                        <img th:src="@{${ad.imageUrl1}}" class="d-block w-100" alt="Image 1">
+                    </div>
+                    <div class="carousel-item" th:if="${ad.imageUrl2 != null and !ad.imageUrl2.isEmpty()}">
+                        <img th:src="@{${ad.imageUrl2}}" class="d-block w-100" alt="Image 2">
+                    </div>
+                    <div class="carousel-item" th:if="${ad.imageUrl3 != null and !ad.imageUrl3.isEmpty()}">
+                        <img th:src="@{${ad.imageUrl3}}" class="d-block w-100" alt="Image 3">
+                    </div>
+                </div>
+                <!-- Contrôles du carrousel -->
+                <a class="carousel-control-prev" href="#adCarousel" role="button" data-slide="prev" th:if="${ad.imageUrl2 != null or ad.imageUrl3 != null}">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Précédent</span>
+                </a>
+                <a class="carousel-control-next" href="#adCarousel" role="button" data-slide="next" th:if="${ad.imageUrl2 != null or ad.imageUrl3 != null}">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </div>
+
+            <!-- Miniatures en dessous du carrousel -->
+            <div class="row mt-3">
+                <div class="col-md-4" th:if="${ad.imageUrl1 != null and !ad.imageUrl1.isEmpty()}">
+                    <div class="image-container">
+                        <img th:src="@{${ad.imageUrl1}}" class="ad-image" alt="Image 1">
+                    </div>
+                </div>
+                <div class="col-md-4" th:if="${ad.imageUrl2 != null and !ad.imageUrl2.isEmpty()}">
+                    <div class="image-container">
+                        <img th:src="@{${ad.imageUrl2}}" class="ad-image" alt="Image 2">
+                    </div>
+                </div>
+                <div class="col-md-4" th:if="${ad.imageUrl3 != null and !ad.imageUrl3.isEmpty()}">
+                    <div class="image-container">
+                        <img th:src="@{${ad.imageUrl3}}" class="ad-image" alt="Image 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section de droite : Informations sur l'annonce -->
+        <div class="right-section">
+            <div class="contact-section">
+                <h3>Contact</h3>
+                <p>Utilisateur : <span th:text="${seller.username}">Nom du vendeur</span></p>
+                <p>Email : <span th:text="${seller.email}">Email du vendeur</span></p>
+            </div>
+
+            <div class="details-section">
+
+                <h3>Prix</h3>
+                <p th:text="${ad.price + ' €'}">Prix</p>
+
+                <h3>Localisation</h3>
+                <ul>
+                    <li th:each="loc : ${ad.location}" th:text="${loc}">Localisation</li>
+                </ul>
+
+                <h3>Date de Création</h3>
+                <span th:text="${formattedDate}"></span>
+
+                <h3 id="dscrpt">Description</h3>
+                <p th:text="${ad.description}" style="white-space: pre-wrap;">Description de l'annonce</p>
+            </div>
+            <!-- Section pour gérer les favoris -->
+            <div th:if="${isFavorite}">
+                <p>Annonce en favoris</p>
+            </div>
+            <div th:unless="${isFavorite}">
+                <form th:action="@{/favorites/add/{id}(id=${ad.id})}" method="post" class="add-ad">
+                    <button type="submit" class="btn add-ad-btn">Ajouter aux Favoris</button>
+                </form>
+            </div>
+        </div>
+        </div>
+        <!-- Section du bas : Détails du synthétiseur -->
+        <div class="synth-details-section">
+            <div id="detail-left">
+            <h3>Détails du Synthétiseur</h3>
+            <p>Type de matériel : <span th:text="${ad.synth.hardwareType}"></span></p>
+            <p>Nombre de voix : <span th:text="${ad.synth.numberOfVoices}"></span></p>
+            <p>Oscillateurs par voix : <span th:text="${ad.synth.oscPerVoice}"></span></p>
+            <p>Multitimbralité : <span th:text="${ad.synth.multitimbral + ' part(s)'}"></span></p>
+            </div>
+            <div id="details-right">
+            <p>Effets : <span th:text="${ad.synth.effects ? 'Oui' : 'Non'}"></span></p>
+            <p>Séquenceur : <span th:text="${ad.synth.sqcr ? 'Oui' : 'Non'}"></span></p>
+            <p>Arpégiateur : <span th:text="${ad.synth.arp ? 'Oui' : 'Non'}"></span></p>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

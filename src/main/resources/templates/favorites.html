@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Annonces Favorites</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="/js/script.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<h1 style="margin-left: 20px;">Mes Annonces Favorites</h1>
+
+<ul class="favorites-list">
+    <li th:each="favorite : ${favorites}">
+        <div style="flex: 0 0 100px;">
+            <a th:href="@{/ad/{id}(id=${favorite.ad.id})}">
+                <img th:src="@{${favorite.ad.imageUrl1}}" alt="Photo de l'annonce" style="width: 100px; height: auto;"/>
+            </a>
+        </div>
+
+        <!-- Détails de l'annonce -->
+        <div class="ad-details">
+            <h3 th:text="${favorite.ad.title}">Titre de l'annonce</h3>
+            <p th:text="${favorite.ad.price} + ' €'">Prix</p>
+        </div>
+
+        <!-- Bouton de suppression -->
+        <div class="remove-button">
+            <form th:action="@{/favorites/remove/{id}(id=${favorite.ad.id})}" method="post">
+                <button type="submit" class="btn">Supprimer</button>
+            </form>
+        </div>
+    </li>
+</ul>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<header>
+    <div id="top_header">
+        <div class="logo">
+            <a href="/" th:href="@{/}">
+                <img th:src="@{/images/logo_final.png}" alt="SynthSale Logo">
+            </a>
+        </div>
+
+        <div class="search-bar">
+            <form th:action="@{/ads}" method="get">
+                <input type="text" name="searchQuery" placeholder="Rechercher...">
+            </form>
+        </div>
+
+        <div class="account-icon">
+
+            <!-- Lien vers la gestion des annonces, visible uniquement si l'utilisateur est connecté -->
+            <a th:if="${#authentication.principal != null}" href="/manageAds" class="account-link">
+                <img th:src="@{/images/logo3.png}" alt="Account">
+            </a>
+
+            <!-- Lien vers la page de connexion, visible uniquement si l'utilisateur n'est pas connecté -->
+            <a th:if="${#authentication.principal == null}" href="/login" class="account-link">
+                <img th:src="@{/images/logo3.png}" alt="Account">
+            </a>
+        </div>
+    </div>
+
+    <div id="nav_cat">
+        <nav>
+            <ul class="nav-tabs">
+                <li><a href="/ads/category/analogic">Analogique</a></li>
+                <li><a href="/ads/category/numeric">Numérique</a></li>
+                <li><a href="/ads/category/hybrid">Hybride</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+</body>
+</html>

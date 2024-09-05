@@ -1,33 +1,36 @@
 package com.doranco.synthsale.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
 @Entity
 public class Synth {
+
     @Id
     @GeneratedValue
     private Long id;
-    private List<String> hardwareType;
+
+
+    private String hardwareType;
     private int numberOfVoices;
     private int oscPerVoice;
-    private List<String> multitimbral;
+
+    private Integer multitimbral;
     private boolean effects;
     private boolean sqcr;
     private boolean arp;
 
-    @ManyToOne
-    private Category category;
+    @NotNull(message = "Renseignez une categorie")
+    @Enumerated(EnumType.STRING)
+    private CategoryEnum category;
 
     public Synth(){
 
     }
 
-    public Synth(Long id, List<String> hardwareType, int numberOfVoices, int oscPerVoice, List<String> multitimbral, boolean effects, boolean sqcr, boolean arp, Category category) {
+    public Synth(Long id, String hardwareType, int numberOfVoices, int oscPerVoice, Integer multitimbral, boolean effects, boolean sqcr, boolean arp, CategoryEnum category) {
         this.id = id;
         this.hardwareType = hardwareType;
         this.numberOfVoices = numberOfVoices;
@@ -47,11 +50,11 @@ public class Synth {
         this.id = id;
     }
 
-    public List<String> getHardwareType() {
+    public String getHardwareType() {
         return hardwareType;
     }
 
-    public void setHardwareType(List<String> hardwareType) {
+    public void setHardwareType(String hardwareType) {
         this.hardwareType = hardwareType;
     }
 
@@ -71,11 +74,11 @@ public class Synth {
         this.oscPerVoice = oscPerVoice;
     }
 
-    public List<String> getMultitimbral() {
+    public Integer getMultitimbral() {
         return multitimbral;
     }
 
-    public void setMultitimbral(List<String> multitimbral) {
+    public void setMultitimbral(Integer multitimbral) {
         this.multitimbral = multitimbral;
     }
 
@@ -103,11 +106,11 @@ public class Synth {
         this.arp = arp;
     }
 
-    public Category getCategory() {
+    public CategoryEnum getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoryEnum category) {
         this.category = category;
     }
 }

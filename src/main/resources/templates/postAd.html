@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une Annonce</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="/js/script.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="ajout-annonce">
+    <h1>Ajout d'Annonce</h1>
+
+    <form th:action="@{/post-ad}" th:object="${ad}" method="post" onsubmit="return validateAdForm()">
+        <div class="form-group">
+            <label for="title">Titre de l'annonce</label>
+            <input type="text" id="title" th:field="*{title}" placeholder="Titre de l'annonce" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" th:field="*{description}" placeholder="Description" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Prix</label>
+            <div style="display: flex; align-items: center; position: relative;">
+                <input type="number" id="price" th:field="*{price}" placeholder="Prix" required style="flex: 1; padding-right: 25px;">
+                <span style="position: absolute; right: 10px; font-size: 16px; color: #333; top: 9px;">€</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="imageUrl1">URL de l'image 1</label>
+            <input type="text" id="imageUrl1" th:field="*{imageUrl1}" placeholder="URL de l'image 1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="imageUrl2">URL de l'image 2</label>
+            <input type="text" id="imageUrl2" th:field="*{imageUrl2}" placeholder="URL de l'image 2">
+        </div>
+
+        <div class="form-group">
+            <label for="imageUrl3">URL de l'image 3"</label>
+            <input type="text" id="imageUrl3" th:field="*{imageUrl3}" placeholder="URL de l'image 3">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Localisation</label>
+            <input type="text" id="location" th:field="*{location}" placeholder="Ville" required>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Catégorie</label>
+            <select id="category" th:field="*{synth.category}" required>
+                <option th:each="category : ${T(com.doranco.synthsale.model.CategoryEnum).values()}"
+                        th:value="${category}"
+                        th:text="${category.label}"></option>
+            </select>
+        </div>
+
+        <h2>Caractéristiques du Synthétiseur</h2>
+
+        <div class="form-group">
+            <label for="hardwareType">Type de Matériel</label>
+            <input type="text" id="hardwareType" th:field="*{synth.hardwareType}" placeholder="Type de Matériel" required>
+        </div>
+
+        <div class="form-group">
+            <label for="numberOfVoices">Nombre de Voix</label>
+            <input type="number" id="numberOfVoices" th:field="*{synth.numberOfVoices}" placeholder="Nombre de Voix" required>
+        </div>
+
+        <div class="form-group">
+            <label for="oscPerVoice">Oscillateurs par Voix</label>
+            <input type="number" id="oscPerVoice" th:field="*{synth.oscPerVoice}" placeholder="Oscillateurs par Voix" required>
+        </div>
+
+        <div class="form-group">
+            <label for="multitimbral">Multitimbral</label>
+            <input type="number" id="multitimbral" th:field="*{synth.multitimbral}" placeholder="Nombre de part(s)" required>
+        </div>
+
+        <!-- Alignement des labels à gauche et cases à cocher sur la même ligne, légèrement à droite -->
+        <div class="form-group" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <label for="effects">Effets</label>
+            <input type="checkbox" id="effects" th:field="*{synth.effects}">
+        </div>
+
+        <div class="form-group" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <label for="sqcr">Séquenceur</label>
+            <input type="checkbox" id="sqcr" th:field="*{synth.sqcr}">
+        </div>
+
+        <div class="form-group" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <label for="arp">Arpégiateur</label>
+            <input type="checkbox" id="arp" th:field="*{synth.arp}">
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Ajouter l'annonce</button>
+        </div>
+    </form>
+</div>
+
+<div class="error-message" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -6,9 +6,11 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Category {
+	
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
 
     public Category() {

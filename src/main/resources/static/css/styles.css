@@ -1,0 +1,1074 @@
+/* Global Styles */
+body {
+    font-family: calibri, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header .search-bar {
+    flex-grow: 1;
+    width: 500px !important;
+    margin-top: 10px !important;
+}
+
+header .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+header .account-icon img {
+    height: 40px;
+}
+
+#top_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header li {margin-left: 0px;}
+
+/* Navigation Categories */
+#nav_cat {
+    background-color: #333;
+}
+
+#nav_cat nav {
+    display: flex;
+}
+
+#nav_cat .nav-tabs {
+    display: flex;
+    width: 100%;
+    list-style: none;
+}
+
+#nav_cat .nav-tabs li {
+    flex: 1;
+    text-align: center;
+}
+
+#nav_cat .nav-tabs li a {
+    display: block;
+    padding: 10px 0;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #444;
+    background-color: #444;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+#nav_cat .nav-tabs li a:hover {
+    background-color: #555;
+}
+
+#nav_cat .nav-tabs li a.active {
+    background-color: #222;
+    border-color: #555;
+}
+
+/* Navigation Links */
+nav {
+    background-color: #444;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #a933dc;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Banner */
+.banner {
+    background-color: #a933dc;
+    background-image: url("/images/banner_4.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 160px 20px;
+    border-radius: 10px;
+    background-size: cover;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+/* Post Ad Button */
+.post-ad {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.post-ad .btn {
+    padding: 10px 20px;
+    background-color: #8c52ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.post-ad .btn:hover,
+.post-ad .btn:focus {
+    background-color: #8a29b8;
+}
+
+/* Carousel */
+.carousel {
+    margin-top: 70px;
+}
+
+.carousel h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-container .ad {
+    flex: 0 0 170px;
+    max-width: 170px;
+    min-width: 170px;
+    margin-right: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carousel-container .ad img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.carousel-container .ad h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    flex: 1;
+}
+
+.carousel-container .ad p.ad-price {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    flex: 0;
+    justify-content: center;
+    display: flex;
+    margin-left: 13px;
+}
+
+.carousel-container .ad .btn {
+    display: block;
+    padding: 8px;
+    background-color: #8c52ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    flex: 0;
+}
+
+.carousel-container .ad .btn:hover,
+.carousel-container .ad .btn:focus {
+    background-color: #8a29b8;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 400px; /* Hauteur fixe pour l'image principale */
+    object-fit: cover; /* Assure que l'image remplit le conteneur sans déformation */
+}
+
+/* Product Page (Fiche Produit) */
+.fiche-annonce {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.titre-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.photo-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.left-section, .right-section {
+    box-sizing: border-box;
+}
+
+.top-section {
+    display: flex;
+    margin-top: -3rem;
+    align-items: stretch;
+    width: 100%;
+}
+
+#dscrpt {margin-top: 10px;}
+
+/* Section de gauche pour le carrousel et les images */
+.left-section {
+    flex: 0 0 60%; /* Garde la section gauche à 60% de la largeur */
+    max-width: 60%; /* S'assure que la largeur maximale est également de 60% */
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* S'assure que le contenu ne déborde pas */
+}
+
+.left-section .carousel {
+    margin-bottom: 20px;
+}
+
+/* Section de droite pour les informations de l'annonce */
+.right-section {
+    flex: 0 0 40%; /* Garde la section droite à 40% de la largeur */
+    max-width: 40%; /* S'assure que la largeur maximale est également de 40% */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 4.7rem;
+}
+
+.contact-section, .details-section {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Section du bas pour les détails du synthétiseur */
+.synth-details-section {
+    flex-basis: 100%;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+}
+
+#details-right {
+    margin-top: 2.65rem;
+    margin-right: 24rem;
+}
+
+/* Taille originale du conteneur d'image */
+.image-container {
+    width: 100%;
+    height: 300px; /* Hauteur du conteneur restaurée */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.add-ad-btn {
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .fiche-annonce {
+        flex-direction: column;
+    }
+
+    .left-section, .right-section, .synth-details-section {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+}
+
+.fiche-annonce .row img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.fiche-annonce button {
+    background-color: #8c52ff;
+    border-color: #8c52ff;
+}
+
+/* Listing Page */
+.listing-container {
+    display: flex;
+    margin: 20px;
+}
+
+#listing_content {
+    display: flex;
+    width: 100%;
+}
+
+#products {
+    width: 100%;
+    padding-right: 20px;
+}
+
+.search-and-filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.filter-button {
+    padding: 8px 16px;
+    background-color: #a933dc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.filters-sidebar {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.filters-sidebar h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.filters-sidebar form {
+display: grid;
+gap: 10px;
+}
+
+.ads-listing {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    gap: 20px;
+}
+
+.ad-item {
+    display: grid;
+    grid-template-columns: 150px 1fr 150px 200px 24px;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    gap: 20px;
+}
+
+.ad-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.ad-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 150%;
+}
+
+.ad-details h3 {
+    color: #333;
+    font-size: 18px;
+    margin: 0;
+}
+
+.ad-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.ad-price {
+    width: 150px; /* Largeur fixe pour aligner les prix */
+    text-align: right; /* Aligner le prix à droite */
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+}
+
+.ad-location {
+    width: 200px; /* Largeur fixe pour aligner les localisations */
+    text-align: center; /* Aligner les localisations à droite */
+}
+
+.ad-item a {
+    color: #a933dc;
+    text-decoration: none;
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.ad-item a:hover,
+.ad-item a:focus {
+    color: #8a29b8;
+    text-decoration: underline;
+}
+
+.ad-favorite {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+}
+
+/* Favorites Page */
+
+.favorites-list {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.favorites-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    min-height: 150px; /* Assurez-vous que toutes les annonces ont la même hauteur minimale */
+    transition: box-shadow 0.3s ease;
+}
+
+.favorites-list li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.favorites-list img {
+    border-radius: 5px;
+    object-fit: cover;
+    width: 100px; /* Largeur fixe pour toutes les images */
+    height: 100px; /* Hauteur fixe pour toutes les images */
+    flex-shrink: 0; /* Empêche les images de se rétrécir */
+}
+
+.favorites-list h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.favorites-list p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.favorites-list .btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.favorites-list .btn:hover,
+.favorites-list .btn:focus {
+    background-color: #d32f2f;
+}
+
+.favorites-list .ad-details {
+    flex: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre les détails verticalement */
+}
+
+.favorites-list .remove-button {
+    padding-left: 20px;
+    display: flex;
+    align-items: center; /* Aligne le bouton "Supprimer" verticalement au centre */
+}
+
+@media (max-width: 768px) {
+    .favorites-list {
+        padding: 0 10px;
+    }
+
+    .favorites-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .favorites-list .ad-details {
+        padding-left: 0;
+        margin-top: 10px;
+    }
+
+    .favorites-list .remove-button {
+        padding-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Manage Ads Page */
+.manage-ads-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ajout-annonce {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ajout-annonce form div {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ajout-annonce label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.ajout-annonce input[type="text"],
+.ajout-annonce input[type="number"],
+.ajout-annonce textarea,
+.ajout-annonce select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.ajout-annonce textarea {
+    height: 100px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+    resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+
+.edit-ad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Gestion des annonces avec sidebar et bouton d'ajout */
+.user-dashboard-container {
+    display: flex;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 20%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.user-info {
+    margin-bottom: 20px;
+}
+
+.user-actions .btn {
+    display: block;
+    width: 91%;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #8c52ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.user-actions .btn:hover,
+.user-actions .btn:focus {
+    background-color: #8a29b8;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.add-ad-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.add-ad-btn {
+    padding: 10px 20px;
+    background-color: #8c52ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.add-ad-btn:hover,
+.add-ad-btn:focus {
+    background-color: #8a29b8;
+}
+
+.ads-listing h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ads-listing table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ads-listing th, .ads-listing td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.ads-listing .ad-thumbnail {
+    width: 100px;
+    height: auto;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.ads-listing .btn {
+    background-color: #8c52ff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.ads-listing .btn:hover,
+.ads-listing .btn:focus {
+    background-color: #8a29b8;
+}
+
+/* Account & Logout Button */
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+
+.sidebar form {
+    display: flex !important;
+    justify-content: center;
+}
+
+#account-btn img {
+    margin-top: 9px;
+}
+
+.account-icon {
+    display: flex;
+}
+
+/* View All Ads Button */
+.view-all-ads {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-all-ads .btn {
+    padding: 10px 20px;
+    background-color: #8c52ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.view-all-ads .btn:hover,
+.view-all-ads .btn:focus {
+    background-color: #8a29b8;
+}
+
+/* Add New Ad Button */
+.add-ad {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.add-ad .btn {
+    padding: 10px 20px;
+    background-color: #8c52ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-ad .btn:hover,
+.add-ad .btn:focus {
+    background-color: #8a29b8;
+}
+
+/* Auth Page (Connexion/Inscription) */
+.auth-container {
+    width: 380px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-forms {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-forms .login-form,
+.auth-forms .register-form {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.auth-forms h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.auth-forms form div {
+    margin-bottom: 15px;
+}
+
+.auth-forms label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.auth-forms input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.auth-forms button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8c52ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-forms button:hover {
+    background-color: #6b3fbd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-dashboard-container,
+    .listing-container {
+        flex-direction: column;
+    }
+
+    .filters-sidebar,
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .ads-listing,
+    .main-content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .auth-container {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .fiche-annonce {
+        flex-direction: column;
+    }
+
+    .left-section, .right-section, .synth-details-section {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+}
+
+.fiche-annonce .row img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.fiche-annonce button {
+    background-color: #8c52ff;
+    border-color: #8c52ff;
+}
+
+footer {
+    background-color: #333;
+    color: #f5f5f5;
+    font-family: calibri, sans-serif;
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 0 10px;
+}
+
+.footer-section-1,
+.footer-section-2,
+.footer-section-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0; margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.footer-section ul li a {
+    color: #a933dc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover,
+.footer-section ul li a:focus {
+    text-decoration: underline;
+    color: #8a29b8;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.social-links li {
+    list-style: none;
+}
+
+.social-links li a {
+    color: #a933dc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links li a:hover,
+.social-links li a:focus {
+    color: #8a29b8;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        margin: 20px 0;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+ul {list-style: none;}
+
+li {margin-left: -38px;}
