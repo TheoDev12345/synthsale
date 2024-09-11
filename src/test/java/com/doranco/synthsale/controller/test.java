@@ -50,7 +50,7 @@ class PostAdControllerTest {
         // Given
         Ad ad = new Ad();
         Synth synth = new Synth();
-        synth.setCategory(CategoryEnum.ANALOGIC); // Utilisez une catégorie valide
+        synth.setCategory(CategoryEnum.ANALOGIC);
         ad.setSynth(synth);
 
         String username = "testUser";
@@ -98,7 +98,7 @@ class PostAdControllerTest {
         // Given
         Ad ad = new Ad();
         Synth synth = new Synth();
-        synth.setCategory(CategoryEnum.ANALOGIC); // Utilisez une catégorie valide
+        synth.setCategory(CategoryEnum.ANALOGIC);
         ad.setSynth(synth);
 
         when(principal.getName()).thenReturn("testUser");

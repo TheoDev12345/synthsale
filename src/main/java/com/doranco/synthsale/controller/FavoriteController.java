@@ -24,7 +24,7 @@ public class FavoriteController {
     @GetMapping
     public String showFavorites(Model model) {
         model.addAttribute("favorites", favoriteService.getFavoritesForUser());
-        return "favorites"; // Assurez-vous que cette vue existe
+        return "favorites";
     }
 
     @PostMapping("/remove/{id}")

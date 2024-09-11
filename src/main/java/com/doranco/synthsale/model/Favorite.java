@@ -25,7 +25,7 @@ public class Favorite {
         this.ad = ad;
     }
 
-    // Getters et Setters
+
     public Long getId() {
         return id;
     }

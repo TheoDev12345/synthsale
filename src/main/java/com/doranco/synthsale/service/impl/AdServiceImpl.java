@@ -38,11 +38,11 @@ public class AdServiceImpl implements AdService {
         }
 
         String categoryString = (category != null) ? category.name() : null;
-        System.out.println("Converted category to string: " + categoryString);
+        System.out.println("categorie convertie en String : " + categoryString);
 
         List<Ad> results = adRepository.findByFiltersAndSearchQuery(searchQuery, categoryString, effects, sqcr, arp, numberOfVoices, oscPerVoice, hardwareType, multitimbral);
-        System.out.println("SQL Query: " + results.toString());  // Ceci affichera la requête SQL générée
-        System.out.println("Number of ads found: " + results.size());
+        System.out.println("SQL Query: " + results.toString());
+        System.out.println("Nombre d'annonces trouvées : " + results.size());
         return results;
     }
 

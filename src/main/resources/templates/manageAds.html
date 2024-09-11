@@ -34,14 +34,7 @@
         <div class="ads-listing">
             <h1>Mes Annonces</h1>
             <table>
-                <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Titre</th>
-                    <th>Prix</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
+
                 <tbody>
                 <tr th:each="ad : ${ads}">
                     <td><img th:src="@{${ad.imageUrl1}}" alt="Image de l'annonce" class="ad-thumbnail"/></td>

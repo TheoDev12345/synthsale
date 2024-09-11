@@ -4,6 +4,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh
 }
 
 /* Header */
@@ -116,7 +120,9 @@ nav ul li a:focus {
 /* Main Content */
 main {
     padding: 20px;
+    flex: 1;
 }
+
 
 /* Banner */
 .banner {
@@ -237,7 +243,7 @@ main {
 
 .carousel-inner img {
     width: 100%;
-    height: 400px; /* Hauteur fixe pour l'image principale */
+    height: 400px;
     object-fit: cover; /* Assure que l'image remplit le conteneur sans déformation */
 }
 
@@ -283,12 +289,12 @@ main {
 
 /* Section de gauche pour le carrousel et les images */
 .left-section {
-    flex: 0 0 60%; /* Garde la section gauche à 60% de la largeur */
-    max-width: 60%; /* S'assure que la largeur maximale est également de 60% */
+    flex: 0 0 60%;
+    max-width: 60%;
     margin-right: 20px;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* S'assure que le contenu ne déborde pas */
+    overflow: hidden;
 }
 
 .left-section .carousel {
@@ -297,8 +303,8 @@ main {
 
 /* Section de droite pour les informations de l'annonce */
 .right-section {
-    flex: 0 0 40%; /* Garde la section droite à 40% de la largeur */
-    max-width: 40%; /* S'assure que la largeur maximale est également de 40% */
+    flex: 0 0 40%;
+    max-width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -312,7 +318,7 @@ main {
     border-radius: 8px;
 }
 
-/* Section du bas pour les détails du synthétiseur */
+/* Section du bas pour les détails du synthé */
 .synth-details-section {
     flex-basis: 100%;
     margin-top: 20px;
@@ -332,7 +338,7 @@ main {
 /* Taille originale du conteneur d'image */
 .image-container {
     width: 100%;
-    height: 300px; /* Hauteur du conteneur restaurée */
+    height: 300px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -485,16 +491,16 @@ gap: 10px;
 }
 
 .ad-price {
-    width: 150px; /* Largeur fixe pour aligner les prix */
-    text-align: right; /* Aligner le prix à droite */
+    width: 150px;
+    text-align: right;
     font-size: 16px;
     color: #000;
     font-weight: bold;
 }
 
 .ad-location {
-    width: 200px; /* Largeur fixe pour aligner les localisations */
-    text-align: center; /* Aligner les localisations à droite */
+    width: 200px;
+    text-align: center;
 }
 
 .ad-item a {
@@ -535,7 +541,7 @@ gap: 10px;
     padding: 15px;
     display: flex;
     align-items: center;
-    min-height: 150px; /* Assurez-vous que toutes les annonces ont la même hauteur minimale */
+    min-height: 150px;
     transition: box-shadow 0.3s ease;
 }
 
@@ -546,8 +552,8 @@ gap: 10px;
 .favorites-list img {
     border-radius: 5px;
     object-fit: cover;
-    width: 100px; /* Largeur fixe pour toutes les images */
-    height: 100px; /* Hauteur fixe pour toutes les images */
+    width: 100px;
+    height: 100px;
     flex-shrink: 0; /* Empêche les images de se rétrécir */
 }
 
@@ -584,13 +590,13 @@ gap: 10px;
     padding-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre les détails verticalement */
+    justify-content: center;
 }
 
 .favorites-list .remove-button {
     padding-left: 20px;
     display: flex;
-    align-items: center; /* Aligne le bouton "Supprimer" verticalement au centre */
+    align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -656,7 +662,7 @@ gap: 10px;
 }
 
 .ajout-annonce textarea {
-    height: 100px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+    height: 100px;
     resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
 }
 
@@ -914,7 +920,7 @@ gap: 10px;
     background-color: #6b3fbd;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
     .user-dashboard-container,
     .listing-container {
@@ -965,6 +971,7 @@ footer {
     color: #f5f5f5;
     font-family: calibri, sans-serif;
     margin-top: 80px;
+    position: relative;
 }
 
 .footer-container {

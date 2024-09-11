@@ -38,10 +38,10 @@ class UserServiceImplTest {
     @Test
     void testRegisterUser_Success() {
         // Arrange
-        User user = new User("testUser", "test@example.com", "password123");
+        User user = new User("testUser", "test@example.com", "Password123!");
         Role userRole = new Role("USER");
 
-        when(passwordEncoder.encode("password123")).thenReturn("encodedPassword123");
+        when(passwordEncoder.encode("Password123!")).thenReturn("encodedPassword123");
         when(roleRepository.findByName("USER")).thenReturn(userRole);
         when(userRepository.save(any(User.class))).thenReturn(user);
 
@@ -58,9 +58,9 @@ class UserServiceImplTest {
     @Test
     void testRegisterUser_RoleNotFound() {
         // Arrange
-        User user = new User("testUser", "test@example.com", "password123");
+        User user = new User("testUser", "test@example.com", "Password123!");
 
-        when(passwordEncoder.encode("password123")).thenReturn("encodedPassword123");
+        when(passwordEncoder.encode("Password123!")).thenReturn("encodedPassword123");
         when(roleRepository.findByName("USER")).thenReturn(null);
 
         // Act & Assert
@@ -74,10 +74,10 @@ class UserServiceImplTest {
     void testRegisterUser_UserAlreadyHasRoles() {
         // Arrange
         Role existingRole = new Role("EXISTING_ROLE");
-        User user = new User("testUser", "test@example.com", "password123");
+        User user = new User("testUser", "test@example.com", "Password123!");
         user.setRoles(Set.of(existingRole));
 
-        when(passwordEncoder.encode("password123")).thenReturn("encodedPassword123");
+        when(passwordEncoder.encode("Password123!")).thenReturn("encodedPassword123");
 
         // Act
         userService.registerUser(user);

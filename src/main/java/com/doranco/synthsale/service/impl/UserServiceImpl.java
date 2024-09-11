@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
                 System.out.println("Rôle USER attribué à l'utilisateur : " + user.getUsername());
             } else {
                 System.out.println("Erreur : Rôle USER introuvable dans la base de données pour l'utilisateur : " + user.getUsername());
-                throw new RuntimeException("Role USER not found in the database");
+                throw new RuntimeException("Role USER non trouvé dans la base de données");
             }
         } else {
             System.out.println("Rôles déjà présents pour l'utilisateur : " + user.getRoles());
@@ -119,13 +119,13 @@ public class UserServiceImpl implements UserService {
             // Vérification du mot de passe avec BCrypt
             boolean isPasswordValid = passwordEncoder.matches(password, user.getPassword());
             if (isPasswordValid) {
-                System.out.println("Authentication successful for user: " + username);
+                System.out.println("Authentication réussi pour utilisateur : " + username);
             } else {
-                System.out.println("Authentication failed for user: " + username);
+                System.out.println("Authentication refusé pour utilisateur : " + username);
             }
             return isPasswordValid;
         }
-        System.out.println("User not found with username: " + username);
+        System.out.println("Utilisateur non trouvé avec nom d'utilisateur : " + username);
         return false;
     }
 
@@ -146,7 +146,7 @@ public class UserServiceImpl implements UserService {
 
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException("User not found with username: " + username);
+            throw new UsernameNotFoundException("Utilisateur non trouvé avec nom d'utilisateur : " + username);
         }
         return user;
     }

@@ -52,7 +52,7 @@ public class ManageAdsController {
 
         if (ad != null && ad.getUser().equals(user)) {
             model.addAttribute("ad", ad);
-            return "editAd"; // Affiche la vue editAd.html pour modifier l'annonce
+            return "editAd";
         } else {
             model.addAttribute("errorMessage", "Annonce non trouvée ou vous n'avez pas les droits pour la modifier.");
             return "redirect:/manageAds";

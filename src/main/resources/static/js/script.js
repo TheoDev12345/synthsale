@@ -87,7 +87,7 @@ function createCookiePopup() {
             <button id="savePreferences" style="padding: 5px 10px; background-color: #008CBA; color: white; border: none; cursor: pointer; font-size: 12px;">Enregistrer</button>
             <button id="rejectNonEssential" style="padding: 5px 10px; background-color: #f44336; color: white; border: none; cursor: pointer; font-size: 12px;">Refuser</button>
         </div>
-        <a href="#" style="color: blue; font-size: 12px;">Politique de confidentialité</a>
+        <a href="/privacy-policy.html" style="color: blue; font-size: 12px;">Politique de confidentialité</a>
     `;
 
     popup.innerHTML = content;

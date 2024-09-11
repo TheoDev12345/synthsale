@@ -60,7 +60,7 @@ public class Ad {
         this.synth = synth;
     }
 
-    // Getters et Setters
+
 
     public Long getId() {
         return id;

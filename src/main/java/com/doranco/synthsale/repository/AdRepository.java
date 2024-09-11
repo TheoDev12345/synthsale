@@ -43,7 +43,7 @@ public interface AdRepository extends JpaRepository<Ad, Long> {
 
 
 
-
+    // Carrousel HomePage
 	List<Ad> findTop10ByOrderByDateCreationDesc();
     
     List<Ad> findByUser(User user);
